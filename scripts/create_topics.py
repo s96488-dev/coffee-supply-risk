@@ -1,12 +1,11 @@
-from confluent_kafka.admin import AdminClient, NewTopic
-from confluent_kafka import KafkaException, KafkaError
 import sys
 
+from confluent_kafka import KafkaError, KafkaException
+from confluent_kafka.admin import AdminClient, NewTopic
+
+DAY_MS = 24 * 60 * 60 * 1000
 
 def main() -> None:
-
-    DAY_MS = 24 * 60 * 60 * 1000
-
     admin = AdminClient({"bootstrap.servers": "localhost:9092"})
 
     topics = [
