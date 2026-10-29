@@ -1,0 +1,13 @@
+data/
+.env
+home/env.bat
+.venv/
+__pycache__/
+update.log
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+
+.terraform/
+*.tfstate
