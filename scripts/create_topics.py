@@ -8,7 +8,6 @@ def main() -> None:
     DAY_MS = 24 * 60 * 60 * 1000
 
     admin = AdminClient({"bootstrap.servers": "localhost:9092"})
-    topics = admin.list_topics(timeout=10).topics
 
     topics = [
         NewTopic(
@@ -55,7 +54,9 @@ def main() -> None:
             else:
                 print(f"failed {name}: {error.str()}")
                 sys.exit(1)
-    print(list(topics))
+
+    existing = admin.list_topics(timeout=10).topics
+    print(sorted(existing))
 
 
 if __name__ == "__main__":
